@@ -1,0 +1,66 @@
+<header class='fixed top-0 left-0 right-0 flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto z-50'>
+  <nav
+    class='nav-ul flex flex-row justify-center items-center gap-2 border border-black rounded-full px-2 py-1 bg-black/50 backdrop-blur-2xl relative'>
+    <div
+      id='menu-backdrop'
+      class={`absolute bg-white/20 backdrop-blur-2x1 rounded-lg 
+      left-0 top-0
+      w-0 h-0
+      transition-all duration-300
+      ease-in-out opacity-0 -z-10
+    `}>
+    </div>
+    <a class='text-sm px-2' href='#top'>Home</a>
+    <a class='text-sm px-2' href='#experience'>Experience</a>
+    <a class='text-sm px-2' href='#projects'>Projects</a>
+    <a class='text-sm px-2' href='#about'>About</a>
+    <a class='text-sm px-2' href='#contact'>Contact</a>
+  </nav>
+</header>
+
+<script>
+  const listItem: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.nav-ul a')
+  const menuBackdrop: HTMLElement | null = document.getElementById('menu-backdrop')
+
+  listItem.forEach((item: HTMLAnchorElement) => {
+    item.addEventListener('mouseenter', () => {
+      const { left, top, width, height }: DOMRect = item.getBoundingClientRect()
+      const navRect: DOMRect | undefined = document.querySelector('.nav-ul')?.getBoundingClientRect()
+
+      if (menuBackdrop && navRect) {
+        menuBackdrop.style.left = `${left - navRect.left}px`
+        menuBackdrop.style.top = `${top - navRect.top}px`
+        menuBackdrop.style.width = `${width}px`
+        menuBackdrop.style.height = `${height}px`
+        menuBackdrop.style.opacity = '1'
+      }
+    })
+    item.addEventListener('mouseleave', () => {
+      if (!menuBackdrop) return
+      menuBackdrop.style.opacity = '0'
+    })
+
+    item.addEventListener('click', (event) => {
+      event.preventDefault() // Evitar el comportamiento predeterminado de navegación
+
+      const targetId = item.getAttribute('href')?.substring(1) // Obtener el ID de destino with null check
+      const targetElement = targetId ? document.getElementById(targetId) : null
+
+      if (targetElement) {
+        const targetRect = targetElement.getBoundingClientRect()
+        const scrollTop = targetRect.top + window.scrollY - /* ajuste adicional aquí */ 50
+
+        if (targetId === 'top') {
+          // Ajuste adicional para el botón "Home"
+          const scrollTop = 0 // O cualquier otro valor que desees para el botón "Home"
+        }
+
+        // Animar el desplazamiento suavemente
+        window.scrollTo({
+          top: scrollTop,
+          behavior: 'smooth',
+        })
+      }
+    })
+  })
+</script>

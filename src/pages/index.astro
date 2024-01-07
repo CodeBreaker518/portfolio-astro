@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro'
+// Components
+import Badge from '../components/Badge.astro'
+import SocialPill from '../components/SocialPill.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import Experience from '../components/Experience.astro'
+import Projects from '../components/Projects.astro'
+// Icons
+import GitHubIcon from '../assets/icons/GitHub.astro'
+import LinkedInIcon from '../assets/icons/LinkedIn.astro'
+import MailIcon from '../assets/icons/Mail.astro'
+import BriefcaseIcon from '../assets/icons/Briefcase.astro'
+import CodeIcon from '../assets/icons/Code.astro'
+---
+
+<Layout
+  title='Diego Perez Perez portfolio - Frontend Web developer - 1 year of experience.'
+  description='Hire Diego Perez Perez as a Frontend Web developer. I specialize in Web layout, Responsive web, and Visual development. Based in Guanajuato, México.'
+  '>
+  <main class='px-4'>
+    <SectionContainer id='top' class='pt-44 pb-32'>
+      <img
+        class='rounded-full size-12 mb-4'
+        src='https://scontent.fgdl9-1.fna.fbcdn.net/v/t39.30808-6/325465753_536012415146135_188879308848852518_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9c7eae&_nc_eui2=AeHHzv_XU16Ey_7fOF80fdJibsh9dH3AIlpuyH10fcAiWpAFctcy3MuI5F_K40Qsz3BZcKE-B28jUtz66fJRp_5a&_nc_ohc=Aa-8J6bdbkgAX_dsZh-&_nc_ht=scontent.fgdl9-1.fna&oh=00_AfCXhHrIrPWf1V64hUT-jKfVpWSdCdtD9CqGIDUECfWf0A&oe=659EFC11'
+        alt='Diego'
+      />
+      <h1 class='text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-2 pb-6 lg:pb-10'>
+        Hey, I'm Diego
+        <div class='flex justify-center items-center'>
+          <a
+            href='https://www.linkedin.com/in/diego-perez-perez-779395246/'
+            target='_blank'
+            rel='noopener noreferrer'
+            class='flex justify-center items-center'>
+            <Badge>Availabe for hire</Badge>
+          </a>
+        </div>
+      </h1>
+      <h2 class='text-xl lg:text-2xl text-wrap max-w-[700px]'>
+        <span> 1 year of experience.</span>
+        <span class='text-yellow-200/90'> Web Frontend Developer.</span>
+        <span class='text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-white to-red-500'>
+          Based in Guanajuato, México.
+        </span>
+        <span class='opacity-75'> I specialize in Web layout, Responsive web, and Visual development.</span>
+      </h2>
+
+      <nav class='flex gap-6 mt-8 flex-wrap'>
+        <SocialPill href='https://www.linkedin.com/in/diego-perez-perez-779395246/'>
+          <LinkedInIcon class='size-4 lg:size-6' />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href='https://www.github.com/CodeBreaker518'>
+          <GitHubIcon class='size-4 lg:size-6' />
+          GitHub
+        </SocialPill>
+        <SocialPill href='mailto:diegoperezperez518@gmail.com'>
+          <MailIcon class='size-4 lg:size-6' />
+          diegoperezperez518@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id='experience'>
+      <h2 class='text-3xl font-semibold mb-6 flex gap-x-3 items-center'>
+        <BriefcaseIcon class='size-7' />
+        Experience
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id='projects'>
+      <h2 class='text-3xl font-semibold mb-6 flex gap-x-3 items-center'>
+        <CodeIcon class='size-7' />
+        Projects
+      </h2>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>
