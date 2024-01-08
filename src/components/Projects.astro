@@ -11,48 +11,57 @@ import FireBaseIcon from '../assets/icons/FireBaseIcon.astro'
 const TAGS = {
   HTML5: {
     name: 'HTML5',
-    class: 'bg-orange-500 text-white',
+    class: 'bg-orange-500 text-white border-[1px] border-[#ffffff1a]',
     icon: HTML5,
   },
   CSS: {
     name: 'CSS3',
-    class: 'bg-indigo-500 text-white',
+    class: 'bg-indigo-500 text-white border-[1px] border-[#ffffff1a]',
     icon: CSS3,
   },
   Bootstrap: {
     name: 'Bootstrap',
-    class: 'bg-white text-gray-900', // Cambiado el color de fondo
+    class: 'bg-white text-gray-900 border-[1px] border-[#ffffff1a]',
     icon: Bootstrap,
   },
   MaterializeCSS: {},
   TailWindCSS: {
     name: 'TailwindCSS',
-    class: 'bg-[#003159] text-white',
+    class: 'bg-[#003159] text-white border-[1px] border-[#ffffff1a]',
     icon: TailwindCSS,
   },
   JavaScript: {
     name: 'JavaScript',
-    class: 'bg-yellow-500 text-black', // Cambiado el color de fondo y del texto
+    class: 'bg-yellow-500 text-black border-[1px] border-[#ffffff1a]',
     icon: JavaScript,
   },
   React: {
     name: 'React.js',
-    class: 'bg-indigo-500 text-white',
+    class: 'bg-indigo-500 text-white border-[1px] border-[#ffffff1a]',
     icon: ReactJS,
   },
   NextJS: {
     name: 'Next.js',
-    class: 'bg-gray-900 text-white',
+    class: 'bg-black text-white border-[1px] border-[#ffffff1a]',
     icon: NextJS,
   },
   FireBase: {
     name: 'Firebase',
-    class: 'bg-white text-gray-900', // Cambiado el color de fondo y del texto
+    class: 'bg-white text-gray-900 border-[1px] border-[#ffffff1a] ',
     icon: FireBaseIcon,
   },
 }
 
 const PROJECTS = [
+  {
+    title: 'Chiteadas',
+    description:
+      'A website that fetch movie data from [TMDB API] and list the movies, it also allows to see the trailers of the movies (in case it has them) and search them with a search bar.',
+    link: 'https://chiteadas.vercel.app/',
+    github: 'https://github.com/CodeBreaker518/chiteadas',
+    image: '/projects/chiteadas.webp',
+    tags: [TAGS.HTML5, TAGS.CSS, TAGS.TailWindCSS, TAGS.NextJS, TAGS.React, TAGS.JavaScript],
+  },
   {
     title: 'Expenses Control',
     description:
@@ -87,10 +96,10 @@ const PROJECTS = [
     <article class='project mb-20'>
       <h3 class='text-2xl font-semibold text-yellow-200 mb-2'>{title}</h3>
       <p class='text-lg mb-4 text-pretty'>{description}</p>
-      <ul class='flex gap-x-2 flex-row mb-2'>
+      <ul class='flex gap-2 flex-row flex-wrap mb-2'>
         {tags.map((tag) => (
           <li>
-            <span class={`flex items-center justify-center gap-x-1 rounded-full text-[9px] ${tag.class} py-1 px-2`}>
+            <span class={`flex items-center justify-center gap-x-1 rounded-full text-xs ${tag.class} py-1 px-2`}>
               {tag.icon && <tag.icon class='size-4' />}
               {tag.name}
             </span>
