@@ -1,28 +1,103 @@
 ---
+import HTML5 from '../assets/icons/HTML5.astro'
+import CSS3 from '../assets/icons/CSS3.astro'
+import JavaScript from '../assets/icons/JavaScript.astro'
+import ReactJS from '../assets/icons/ReactJS.astro'
+import TailwindCSS from '../assets/icons/TailwindCSS.astro'
+import Bootstrap from '../assets/icons/Bootstrap.astro'
+import NextJS from '../assets/icons/NextJS.astro'
+import FireBaseIcon from '../assets/icons/FireBaseIcon.astro'
+
+const TAGS = {
+  HTML5: {
+    name: 'HTML5',
+    class: 'bg-orange-500 text-white',
+    icon: HTML5,
+  },
+  CSS: {
+    name: 'CSS3',
+    class: 'bg-indigo-500 text-white',
+    icon: CSS3,
+  },
+  Bootstrap: {
+    name: 'Bootstrap',
+    class: 'bg-white text-gray-900', // Cambiado el color de fondo
+    icon: Bootstrap,
+  },
+  MaterializeCSS: {},
+  TailWindCSS: {
+    name: 'TailwindCSS',
+    class: 'bg-[#003159] text-white',
+    icon: TailwindCSS,
+  },
+  JavaScript: {
+    name: 'JavaScript',
+    class: 'bg-yellow-500 text-black', // Cambiado el color de fondo y del texto
+    icon: JavaScript,
+  },
+  React: {
+    name: 'React.js',
+    class: 'bg-indigo-500 text-white',
+    icon: ReactJS,
+  },
+  NextJS: {
+    name: 'Next.js',
+    class: 'bg-gray-900 text-white',
+    icon: NextJS,
+  },
+  FireBase: {
+    name: 'Firebase',
+    class: 'bg-white text-gray-900', // Cambiado el color de fondo y del texto
+    icon: FireBaseIcon,
+  },
+}
+
 const PROJECTS = [
   {
-    title: 'Project 1',
+    title: 'Expenses Control',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, nec aliquam nis',
-    link: 'https://www.google.com',
-    github: 'https://www.github.com',
-    image: 'https://picsum.photos/200/300',
-    tags: ['HTML', 'CSS', 'JavaScript'],
+      'A website to control your expenses built using React & TailwindCSS, using visual helpers to check your expenses, filters, and being able to restart the app. Used to perform CRUD operations on expenses using localStorage.',
+    link: 'https://expenses-control-codebreaker518.netlify.app/',
+    github: 'https://github.com/CodeBreaker518/expense-control',
+    image: '/projects/expenses-control.webp',
+    tags: [TAGS.HTML5, TAGS.CSS, TAGS.TailWindCSS, TAGS.React, TAGS.JavaScript],
+  },
+  {
+    title: 'Veterinary Control',
+    description:
+      'A website for a veterinary clinic built using React & TailwindCSS. Used to perform CRUD operations on pets using localStorage.',
+    link: 'https://veterinary-control.netlify.app/',
+    github: 'https://github.com/CodeBreaker518/VeterinaryControl',
+    image: '/projects/veterinary-control.webp',
+    tags: [TAGS.HTML5, TAGS.CSS, TAGS.TailWindCSS, TAGS.React, TAGS.JavaScript],
+  },
+  {
+    title: 'Realtime Chat App',
+    description: 'A realtime chat app built using Vanilla JavaScript, and Firebase with Google Authentication.',
+    link: 'https://chat-firebase-codebreaker518.web.app/',
+    github: 'https://github.com/CodeBreaker518/chat-firebase',
+    image: '/projects/chat-firebase.webp',
+    tags: [TAGS.HTML5, TAGS.CSS, TAGS.JavaScript, TAGS.Bootstrap, TAGS.FireBase],
   },
 ]
 ---
 
 {
   PROJECTS.map(({ title, description, tags, image }) => (
-    <article class='project'>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <ul>
+    <article class='project mb-20'>
+      <h3 class='text-2xl font-semibold text-yellow-200 mb-2'>{title}</h3>
+      <p class='text-lg mb-4 text-pretty'>{description}</p>
+      <ul class='flex gap-x-2 flex-row mb-2'>
         {tags.map((tag) => (
-          <li>{tag}</li>
+          <li>
+            <span class={`flex items-center justify-center gap-x-1 rounded-full text-[9px] ${tag.class} py-1 px-2`}>
+              {tag.icon && <tag.icon class='size-4' />}
+              {tag.name}
+            </span>
+          </li>
         ))}
       </ul>
-      <img src={image} alt={`Screenshot of the project ${title}`} />
+      <img class='rounded shadow-2xl shadow-white/10' src={image} alt={`Screenshot of the project ${title}`} />
     </article>
   ))
 }
