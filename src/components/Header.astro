@@ -47,11 +47,10 @@
 
       if (targetElement) {
         const targetRect = targetElement.getBoundingClientRect()
-        const scrollTop = targetRect.top + window.scrollY - /* ajuste adicional aquí */ 50
+        let scrollTop = targetRect.top + window.scrollY - /* ajuste adicional aquí */ 50
 
         if (targetId === 'top') {
-          // Ajuste adicional para el botón "Home"
-          const scrollTop = 0 // O cualquier otro valor que desees para el botón "Home"
+          scrollTop = 0
         }
 
         // Animar el desplazamiento suavemente
