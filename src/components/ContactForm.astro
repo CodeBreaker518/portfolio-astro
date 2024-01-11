@@ -2,7 +2,7 @@
 
 ---
 
-<form class='mt-8'>
+<form class='mt-8' action='https://formspree.io/f/mnqenjoe' method='POST'>
   <div class='grid grid-cols-1 gap-6'>
     <div>
       <label for='name' class='block text-sm font-medium text-yellow-200'>Name</label>
@@ -69,7 +69,6 @@
 
   submitFormBtn?.addEventListener('click', async (e) => {
     e.preventDefault()
-
     const name = (document.getElementById('name') as HTMLInputElement).value
     const email = (document.getElementById('email') as HTMLInputElement).value
     const message = (document.getElementById('message') as HTMLTextAreaElement).value
@@ -86,48 +85,17 @@
       return
     }
 
-    try {
-      const res = await fetch('/api/sendEmail.json', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          from: 'onboarding@resend.dev',
-          to: 'darksilent518@gmail.com',
-          subject: subject,
-          name: name,
-          email: email,
-          message: message,
-          html: `
-          <div class="bg-blue-200">
-            <h1>From: ${email}</h1>
-            <h1>Name: ${name}</h1>
-            <h1>Subject: ${subject}</h1>
-            <h1>Message: ${message}</h1>
-          </div>
-          `,
-          text: message,
-        }),
-      })
-
-      const data = await res.json()
-      if (data) {
-        //reset form
-        const name = ((document.getElementById('name') as HTMLInputElement).value = '')
-        const email = ((document.getElementById('email') as HTMLInputElement).value = '')
-        const message = ((document.getElementById('message') as HTMLTextAreaElement).value = '')
-        const subject = ((document.getElementById('subject') as HTMLTextAreaElement).value = '')
-        //& show success message
-        errorElement!.textContent = 'Message sent successfully.'
-        errorElement?.classList.add('text-green-800', 'bg-white', 'p-2', 'rounded-md')
-        setTimeout(() => {
-          errorElement!.textContent = ''
-          errorElement?.classList.remove('text-green-800', 'bg-white', 'p-2', 'rounded-md')
-        }, 5000)
-      }
-    } catch (error) {
-      console.error(error)
-    }
+    //reset form in case of success
+    ;(document.getElementById('name') as HTMLInputElement).value = ''
+    ;(document.getElementById('email') as HTMLInputElement).value = ''
+    ;(document.getElementById('message') as HTMLTextAreaElement).value = ''
+    ;(document.getElementById('subject') as HTMLTextAreaElement).value = ''
+    // show success message
+    errorElement!.textContent = 'Message sent successfully.'
+    errorElement?.classList.add('text-green-800', 'bg-white', 'p-2', 'rounded-md')
+    setTimeout(() => {
+      errorElement!.textContent = ''
+      errorElement?.classList.remove('text-green-800', 'bg-white', 'p-2', 'rounded-md')
+    }, 5000)
   })
 </script>
