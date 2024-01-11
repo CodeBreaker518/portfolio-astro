@@ -2,7 +2,7 @@
 
 ---
 
-<form class='mt-8' name='contact-form' method='POST' data-netlify='true'>
+<form class='mt-8' name='contact-form' method='POST' data-netlify='true' data-netlify-recaptcha='true'>
   <div class='grid grid-cols-1 gap-6'>
     <div>
       <label for='name' class='block text-sm font-medium text-yellow-200'>Name</label>
@@ -55,6 +55,7 @@
           required></textarea>
       </div>
     </div>
+    <div data-netlify-recaptcha='true'></div>
     <div id='error' class='font-bold'></div>
     <div>
       <button
