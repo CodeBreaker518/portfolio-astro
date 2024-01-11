@@ -2,7 +2,7 @@
 
 ---
 
-<form class='mt-8' action='https://formspree.io/f/mnqenjoe' method='POST'>
+<form class='mt-8' name='contact-form' netlify>
   <div class='grid grid-cols-1 gap-6'>
     <div>
       <label for='name' class='block text-sm font-medium text-yellow-200'>Name</label>
@@ -64,38 +64,31 @@
 </form>
 
 <script>
-  // extract form data and send
-  const submitFormBtn = document.getElementById('submitFormBtn')
+  // const submitFormBtn = document.getElementById('submitFormBtn')
+  // submitFormBtn?.addEventListener('click', async (e) => {
+  //   e.preventDefault()
 
-  submitFormBtn?.addEventListener('click', async (e) => {
-    e.preventDefault()
-    const name = (document.getElementById('name') as HTMLInputElement).value
-    const email = (document.getElementById('email') as HTMLInputElement).value
-    const message = (document.getElementById('message') as HTMLTextAreaElement).value
-    const subject = (document.getElementById('subject') as HTMLTextAreaElement).value
-    const errorElement = document.getElementById('error')
+  //   if (!name || !email || !message || !subject) {
+  //     errorElement!.textContent = 'Please fill in all fields.'
+  //     errorElement?.classList.add('text-red-800', 'bg-white', 'p-2', 'rounded-md')
+  //     setTimeout(() => {
+  //       errorElement!.textContent = ''
+  //       errorElement?.classList.remove('text-red-800', 'bg-white', 'p-2', 'rounded-md')
+  //     }, 5000)
+  //     return
+  //   }
 
-    if (!name || !email || !message || !subject) {
-      errorElement!.textContent = 'Please fill in all fields.'
-      errorElement?.classList.add('text-red-800', 'bg-white', 'p-2', 'rounded-md')
-      setTimeout(() => {
-        errorElement!.textContent = ''
-        errorElement?.classList.remove('text-red-800', 'bg-white', 'p-2', 'rounded-md')
-      }, 5000)
-      return
-    }
-
-    //reset form in case of success
-    ;(document.getElementById('name') as HTMLInputElement).value = ''
-    ;(document.getElementById('email') as HTMLInputElement).value = ''
-    ;(document.getElementById('message') as HTMLTextAreaElement).value = ''
-    ;(document.getElementById('subject') as HTMLTextAreaElement).value = ''
-    // show success message
-    errorElement!.textContent = 'Message sent successfully.'
-    errorElement?.classList.add('text-green-800', 'bg-white', 'p-2', 'rounded-md')
-    setTimeout(() => {
-      errorElement!.textContent = ''
-      errorElement?.classList.remove('text-green-800', 'bg-white', 'p-2', 'rounded-md')
-    }, 5000)
-  })
+  //   //reset form in case of success
+  //   ;(document.getElementById('name') as HTMLInputElement).value = ''
+  //   ;(document.getElementById('email') as HTMLInputElement).value = ''
+  //   ;(document.getElementById('message') as HTMLTextAreaElement).value = ''
+  //   ;(document.getElementById('subject') as HTMLTextAreaElement).value = ''
+  //   // show success message
+  //   errorElement!.textContent = 'Message sent successfully.'
+  //   errorElement?.classList.add('text-green-800', 'bg-white', 'p-2', 'rounded-md')
+  //   setTimeout(() => {
+  //     errorElement!.textContent = ''
+  //     errorElement?.classList.remove('text-green-800', 'bg-white', 'p-2', 'rounded-md')
+  //   }, 5000)
+  // })
 </script>
