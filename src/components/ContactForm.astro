@@ -1,0 +1,133 @@
+---
+
+---
+
+<form class='mt-8'>
+  <div class='grid grid-cols-1 gap-6'>
+    <div>
+      <label for='name' class='block text-sm font-medium text-yellow-200'>Name</label>
+      <div class='mt-1'>
+        <input
+          type='text'
+          id='name'
+          name='name'
+          class='py-2 px-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
+          placeholder='Enter your name'
+        />
+      </div>
+    </div>
+    <div>
+      <label for='email' class='block text-sm font-medium text-yellow-200'>Email</label>
+      <div class='mt-1'>
+        <input
+          type='email'
+          id='email'
+          name='email'
+          class='py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
+          placeholder='Enter your email'
+        />
+      </div>
+    </div>
+    <div>
+      <label for='subject' class='block text-sm font-medium text-yellow-200'>Subject</label>
+      <div class='mt-1'>
+        <input
+          type='text'
+          id='subject'
+          name='subject'
+          class='py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
+          placeholder='Subject'
+        />
+      </div>
+    </div>
+    <div>
+      <label for='message' class='block text-sm font-medium text-yellow-200'>Message</label>
+      <div class='mt-1'>
+        <textarea
+          id='message'
+          name='message'
+          rows='4'
+          class='py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none'
+          placeholder='Enter your message'></textarea>
+      </div>
+    </div>
+    <div id='error' class='font-bold'></div>
+    <div>
+      <button
+        type='submit'
+        id='submitFormBtn'
+        class='inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-900 bg-white'>
+        Send Message
+      </button>
+    </div>
+  </div>
+</form>
+
+<script>
+  // extract form data and send
+  const submitFormBtn = document.getElementById('submitFormBtn')
+
+  submitFormBtn?.addEventListener('click', async (e) => {
+    e.preventDefault()
+
+    const name = (document.getElementById('name') as HTMLInputElement).value
+    const email = (document.getElementById('email') as HTMLInputElement).value
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value
+    const subject = (document.getElementById('subject') as HTMLTextAreaElement).value
+    const errorElement = document.getElementById('error')
+
+    if (!name || !email || !message || !subject) {
+      errorElement!.textContent = 'Please fill in all fields.'
+      errorElement?.classList.add('text-red-800', 'bg-white', 'p-2', 'rounded-md')
+      setTimeout(() => {
+        errorElement!.textContent = ''
+        errorElement?.classList.remove('text-red-800', 'bg-white', 'p-2', 'rounded-md')
+      }, 5000)
+      return
+    }
+
+    try {
+      const res = await fetch('/api/sendEmail.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'onboarding@resend.dev',
+          to: 'darksilent518@gmail.com',
+          subject: subject,
+          name: name,
+          email: email,
+          message: message,
+          html: `
+          <div class="bg-blue-200">
+            <h1>From: ${email}</h1>
+            <h1>Name: ${name}</h1>
+            <h1>Subject: ${subject}</h1>
+            <h1>Message: ${message}</h1>
+          </div>
+          `,
+          text: message,
+        }),
+      })
+
+      const data = await res.json()
+      if (data) {
+        //reset form
+        const name = ((document.getElementById('name') as HTMLInputElement).value = '')
+        const email = ((document.getElementById('email') as HTMLInputElement).value = '')
+        const message = ((document.getElementById('message') as HTMLTextAreaElement).value = '')
+        const subject = ((document.getElementById('subject') as HTMLTextAreaElement).value = '')
+        //& show success message
+        errorElement!.textContent = 'Message sent successfully.'
+        errorElement?.classList.add('text-green-800', 'bg-white', 'p-2', 'rounded-md')
+        setTimeout(() => {
+          errorElement!.textContent = ''
+          errorElement?.classList.remove('text-green-800', 'bg-white', 'p-2', 'rounded-md')
+        }, 5000)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  })
+</script>
