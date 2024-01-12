@@ -11,6 +11,8 @@ import NextJS from '../assets/icons/NextJS.astro'
 import FireBaseIcon from '../assets/icons/FireBaseIcon.astro'
 import ExternalLink from '../assets/icons/ExternalLink.astro'
 import GitHub from '../assets/icons/GitHub.astro'
+import RemixRun from '../assets/icons/RemixRun.astro'
+import Strapi from '../assets/icons/Strapi.astro'
 
 const TAGS = {
   HTML5: {
@@ -54,9 +56,28 @@ const TAGS = {
     class: 'bg-white text-gray-900 border-[1px] border-[#ffffff1a] ',
     icon: FireBaseIcon,
   },
+  RemixRun: {
+    name: 'Remix Run',
+    class: 'bg-black text-white border-[1px] border-[#ffffff1a] ',
+    icon: RemixRun,
+  },
+  Strapi: {
+    name: 'Strapi',
+    class: 'bg-white text-gray-900 border-[1px] border-[#ffffff1a] ',
+    icon: Strapi,
+  },
 }
 
 const PROJECTS = [
+  {
+    title: 'Guitar Glide',
+    description:
+      'A website that consumes data from an API created with Strapi using a postgreSQL database hosted on Render.com, listing the guitars, posts from a blog and also has a shopping cart that uses localStorage to store the items.',
+    link: 'https://guitar-glide-remix.vercel.app/',
+    github: 'https://github.com/CodeBreaker518/guitar-glide-remix',
+    image: '/projects/guitar-glide-remix.webp',
+    tags: [TAGS.HTML5, TAGS.CSS, TAGS.RemixRun, TAGS.React, TAGS.JavaScript, TAGS.Strapi],
+  },
   {
     title: 'Chiteadas',
     description:
