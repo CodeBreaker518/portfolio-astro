@@ -14,6 +14,7 @@ import MailIcon from '../assets/icons/Mail.astro'
 import BriefcaseIcon from '../assets/icons/Briefcase.astro'
 import CodeIcon from '../assets/icons/Code.astro'
 import MailContact from '../assets/icons/MailContact.astro'
+import FileDownload from '../assets/icons/FileDownload.astro'
 ---
 
 <Layout
@@ -56,6 +57,10 @@ import MailContact from '../assets/icons/MailContact.astro'
         <SocialPill href='mailto:diegoperezperez518@gmail.com'>
           <MailIcon class='size-4 lg:size-6' />
           diegoperezperez518@gmail.com
+        </SocialPill>
+        <SocialPill download='[EN]CV_Diego-Perez-Perez' href='/[EN]CV_Diego-Perez-Perez.pdf'>
+          <FileDownload class='size-4 lg:size-6' />
+          Download Resume
         </SocialPill>
       </nav>
     </SectionContainer>
