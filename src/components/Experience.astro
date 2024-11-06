@@ -1,25 +1,31 @@
 ---
-import ExperienceItem from './ExperienceItem.astro'
+import ExperienceItem from "./ExperienceItem.astro";
 const EXPERIENCE = [
   {
-    date: 'January 2023 - Today',
-    title: 'Junior Fullstack Web Developer - KeepVending USA / NitroBean USA',
+    date: "June 2024 - August 2024",
+    title: "Frontend Web Developer - Jalo",
     description:
-      'Working in an Online Dashboard which allows to manage the status of the machines of the company, the application originally was developed in Angular & Django. I am in charge of migrating the entire app to React.js with Next.js & GraphQL using TailwindCSS for the UI, also creating our own reusable components using the best practices of docs and unit testing.',
+      "Worked closely with the CTO to enhance the user experience of the web creating and optimizing UI/UX modules & developing a dashboard tool to manage and show the social & promotional links of the website, also participating creating mini-games like a Tetris & a semi-3d racing game as a user experience reward.",
   },
   {
-    date: 'June 2023 - August 2023',
-    title: 'Junior Software Developer - Soluciones Electrónicas SIMTRO',
+    date: "January 2024- June 2024",
+    title: "Junior Fullstack Web Developer - KeepVending USA / NitroBean USA",
     description:
-      'Participation in the UI development of a SaaS that works as a shooting simulator, used by the Mexican Ministry of National Defense (SEDENA).  Assistance in the integration of new UI functionalities to the simulator, increasing client performance by 10%. Resolution of small bugs/errors in the UI of the application.',
+      "Working in an Online Dashboard which allows to manage the status of the machines of the company, the application originally was developed in Angular & Django. I am in charge of migrating the entire app to React.js with Next.js & GraphQL using TailwindCSS for the UI, also creating our own reusable components using the best practices of docs and unit testing.",
   },
-]
+  {
+    date: "June 2023 - August 2023",
+    title: "Junior Software Developer - Soluciones Electrónicas SIMTRO",
+    description:
+      "Participation in the UI development of a SaaS that works as a shooting simulator, used by the Mexican Ministry of National Defense (SEDENA).  Assistance in the integration of new UI functionalities to the simulator, increasing client performance by 10%. Resolution of small bugs/errors in the UI of the application.",
+  },
+];
 ---
 
-<ol class='relative border-s border-gray-200 ml-3'>
+<ol class="relative border-s border-gray-200 ml-3">
   {
     EXPERIENCE.map((experience) => (
-      <li class='mb-10 ms-4'>
+      <li class="mb-10 ms-4">
         <ExperienceItem {...experience} />
       </li>
     ))
