@@ -1,92 +1,127 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from "../layouts/Layout.astro";
 // Components
-import Badge from '../components/Badge.astro'
-import SocialPill from '../components/SocialPill.astro'
-import SectionContainer from '../components/SectionContainer.astro'
-import Experience from '../components/Experience.astro'
-import Projects from '../components/Projects.astro'
-import ContactForm from '../components/ContactForm.astro'
+import Badge from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import ContactForm from "../components/ContactForm.astro";
 // Icons
-import GitHubIcon from '../assets/icons/GitHub.astro'
-import LinkedInIcon from '../assets/icons/LinkedIn.astro'
-import MailIcon from '../assets/icons/Mail.astro'
-import BriefcaseIcon from '../assets/icons/Briefcase.astro'
-import CodeIcon from '../assets/icons/Code.astro'
-import MailContact from '../assets/icons/MailContact.astro'
-import FileDownload from '../assets/icons/FileDownload.astro'
+import GitHubIcon from "../assets/icons/GitHub.astro";
+import LinkedInIcon from "../assets/icons/LinkedIn.astro";
+import MailIcon from "../assets/icons/Mail.astro";
+import BriefcaseIcon from "../assets/icons/Briefcase.astro";
+import CodeIcon from "../assets/icons/Code.astro";
+import MailContact from "../assets/icons/MailContact.astro";
+import FileDownload from "../assets/icons/FileDownload.astro";
 ---
 
 <Layout
-  title='Diego Perez Perez portfolio - Frontend Web developer - 1 year of experience.'
-  description='Hire Diego Perez Perez as a Frontend Web developer. I specialize in Web layout, Responsive web, and Visual development. Based in Guanajuato, México.'
+  title="Diego Perez Perez portfolio - Frontend Web developer - 1 year of experience."
+  description="Hire Diego Perez Perez as a Frontend Web developer. I specialize in Web layout, Responsive web, and Visual development. Based in Guanajuato, México."
   '>
-  <main class='px-4'>
-    <SectionContainer id='top' class='pt-44 pb-32'>
-      <img class='rounded-full size-12 mb-4' src='https://i.ibb.co/yddzbPN/me.jpg' alt='Diego' />
-      <h1 class='text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-2 pb-6 lg:pb-10'>
+  <main class="px-4">
+    <SectionContainer id="top" class="pt-44 pb-32">
+      <img
+        id="hero-img"
+        class="rounded-full size-12 mb-4 opacity-0 translate-y-3 transition-all duration-500 ease-out"
+        src="https://i.ibb.co/yddzbPN/me.jpg"
+        alt="Diego"
+      />
+      <h1
+        id="hero-h1"
+        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-2 pb-6 lg:pb-10 opacity-0 translate-y-3 transition-all duration-500 ease-out">
         Hey, I'm Diego
-        <div class='flex justify-center items-center'>
+        <div class="flex justify-center items-center">
           <a
-            href='https://www.linkedin.com/in/diego-perez-perez-779395246/'
-            target='_blank'
-            rel='noopener noreferrer'
-            class='flex justify-center items-center'>
+            href="https://www.linkedin.com/in/diego-perez-perez-779395246/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex justify-center items-center">
             <Badge>Availabe for hire</Badge>
           </a>
         </div>
       </h1>
-      <h2 class='text-xl lg:text-2xl text-wrap max-w-[700px]'>
-        <span class='text-white'> 1+ year of experience.</span>
-        <span class='text-yellow-200/90'> Web Frontend Developer.</span>
-        <span class='text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-white to-red-500'>
-          <br> Based in Guanajuato, México.
+      <h2
+        id="hero-h2"
+        class="text-xl lg:text-2xl text-wrap max-w-[700px] opacity-0 translate-y-3 transition-all duration-500 ease-out">
+        <span class="text-white"> 1+ year of experience.</span>
+        <span class="text-yellow-200/90"> Web Frontend Developer.</span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-white to-red-500">
+          <br /> Based in Guanajuato, México.
         </span>
-        <span class='text-white opacity-75'> I specialize in Web layout, Responsive web, and Visual development.</span>
+        <span class="text-white opacity-75"> I specialize in Web layout, Responsive web, and Visual development.</span>
       </h2>
 
-      <nav class='flex gap-6 mt-8 flex-wrap text-white'>
-        <SocialPill href='https://www.linkedin.com/in/diego-perez-perez-779395246/'>
-          <LinkedInIcon class='size-4 lg:size-6' />
+      <nav
+        id="hero-nav"
+        class="flex gap-6 mt-8 flex-wrap text-white opacity-0 translate-y-3 transition-all duration-500 ease-out">
+        <SocialPill href="https://www.linkedin.com/in/diego-perez-perez-779395246/">
+          <LinkedInIcon class="size-4 lg:size-6" />
           LinkedIn
         </SocialPill>
-        <SocialPill href='https://www.github.com/CodeBreaker518'>
-          <GitHubIcon class='size-4 lg:size-6' />
+        <SocialPill href="https://www.github.com/CodeBreaker518">
+          <GitHubIcon class="size-4 lg:size-6" />
           GitHub
         </SocialPill>
-        <SocialPill href='mailto:diegoperezperez518@gmail.com'>
-          <MailIcon class='size-4 lg:size-6' />
+        <SocialPill href="mailto:diegoperezperez518@gmail.com">
+          <MailIcon class="size-4 lg:size-6" />
           diegoperezperez518@gmail.com
         </SocialPill>
-        <SocialPill download='[EN]CV_Diego-Perez-Perez' href='/[EN]CV_Diego-Perez-Perez.pdf'>
-          <FileDownload class='size-4 lg:size-6' />
+        <SocialPill download="[EN]CV_Diego-Perez-Perez" href="/[EN]CV_Diego-Perez-Perez.pdf">
+          <FileDownload class="size-4 lg:size-6" />
           Download Resume
         </SocialPill>
       </nav>
     </SectionContainer>
 
-    <SectionContainer id='experience'>
-      <h2 class='text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center'>
-        <BriefcaseIcon class='size-7' />
+    <SectionContainer id="experience">
+      <h2 class="text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center">
+        <BriefcaseIcon class="size-7" />
         Experience
       </h2>
       <Experience />
     </SectionContainer>
 
-    <SectionContainer id='projects'>
-      <h2 class='text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center'>
-        <CodeIcon class='size-7' />
+    <SectionContainer id="projects">
+      <h2 class="text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center">
+        <CodeIcon class="size-7" />
         Projects
       </h2>
       <Projects />
     </SectionContainer>
 
-    <SectionContainer id='contact'>
-      <h2 class='text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center'>
-        <MailContact class='size-7' />
+    <SectionContainer id="contact">
+      <h2 class="text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center">
+        <MailContact class="size-7" />
         Contact
       </h2>
       <ContactForm />
     </SectionContainer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const img = document.getElementById("hero-img");
+        const h1 = document.getElementById("hero-h1");
+        const h2 = document.getElementById("hero-h2");
+        const nav = document.getElementById("hero-nav");
+
+        const elements = [
+          { el: img, delay: 100 },
+          { el: h1, delay: 200 },
+          { el: h2, delay: 300 },
+          { el: nav, delay: 400 },
+        ];
+
+        elements.forEach(({ el, delay }) => {
+          if (el) {
+            setTimeout(() => {
+              el.classList.remove("opacity-0", "translate-y-3");
+            }, delay);
+          }
+        });
+      });
+    </script>
   </main>
 </Layout>

@@ -1,162 +1,185 @@
 ---
-import SocialPill from './SocialPill.astro'
+import SocialPill from "./SocialPill.astro";
 
-import HTML5 from '../assets/icons/HTML5.astro'
-import CSS3 from '../assets/icons/CSS3.astro'
-import JavaScript from '../assets/icons/JavaScript.astro'
-import ReactJS from '../assets/icons/ReactJS.astro'
-import TailwindCSS from '../assets/icons/TailwindCSS.astro'
-import Bootstrap from '../assets/icons/Bootstrap.astro'
-import NextJS from '../assets/icons/NextJS.astro'
-import FireBaseIcon from '../assets/icons/FireBaseIcon.astro'
-import ExternalLink from '../assets/icons/ExternalLink.astro'
-import GitHub from '../assets/icons/GitHub.astro'
-import RemixRun from '../assets/icons/RemixRun.astro'
-import Strapi from '../assets/icons/Strapi.astro'
+import HTML5 from "../assets/icons/HTML5.astro";
+import CSS3 from "../assets/icons/CSS3.astro";
+import JavaScript from "../assets/icons/JavaScript.astro";
+import ReactJS from "../assets/icons/ReactJS.astro";
+import TailwindCSS from "../assets/icons/TailwindCSS.astro";
+import Bootstrap from "../assets/icons/Bootstrap.astro";
+import NextJS from "../assets/icons/NextJS.astro";
+import FireBaseIcon from "../assets/icons/FireBaseIcon.astro";
+import ExternalLink from "../assets/icons/ExternalLink.astro";
+import GitHub from "../assets/icons/GitHub.astro";
+import RemixRun from "../assets/icons/RemixRun.astro";
+import Strapi from "../assets/icons/Strapi.astro";
+import TypeScript from "../assets/icons/TypeScript.astro";
+import Bun from "../assets/icons/Bun.astro";
 
 const TAGS = {
   HTML5: {
-    name: 'HTML5',
-    class: 'bg-orange-500 text-white border-[1px] border-[#ffffff1a]',
+    name: "HTML5",
+    class: "bg-orange-500 text-white border-[1px] border-[#ffffff1a]",
     icon: HTML5,
   },
   CSS: {
-    name: 'CSS3',
-    class: 'bg-indigo-500 text-white border-[1px] border-[#ffffff1a]',
+    name: "CSS3",
+    class: "bg-indigo-500 text-white border-[1px] border-[#ffffff1a]",
     icon: CSS3,
   },
   Bootstrap: {
-    name: 'Bootstrap',
-    class: 'bg-white text-gray-900 border-[1px] border-[#ffffff1a]',
+    name: "Bootstrap",
+    class: "bg-white text-gray-900 border-[1px] border-[#ffffff1a]",
     icon: Bootstrap,
   },
   MaterializeCSS: {},
   TailWindCSS: {
-    name: 'TailwindCSS',
-    class: 'bg-[#003159] text-white border-[1px] border-[#ffffff1a]',
+    name: "TailwindCSS",
+    class: "bg-[#003159] text-white border-[1px] border-[#ffffff1a]",
     icon: TailwindCSS,
   },
   JavaScript: {
-    name: 'JavaScript',
-    class: 'bg-yellow-500 text-black border-[1px] border-[#ffffff1a]',
+    name: "JavaScript",
+    class: "bg-yellow-500 text-black border-[1px] border-[#ffffff1a]",
     icon: JavaScript,
   },
   React: {
-    name: 'React.js',
-    class: 'bg-[#374151] text-white border-[1px] border-[#ffffff1a]',
+    name: "React.js",
+    class: "bg-[#374151] text-white border-[1px] border-[#ffffff1a]",
     icon: ReactJS,
   },
   NextJS: {
-    name: 'Next.js',
-    class: 'bg-black text-white border-[1px] border-[#ffffff1a]',
+    name: "Next.js",
+    class: "bg-black text-white border-[1px] border-[#ffffff1a]",
     icon: NextJS,
   },
   FireBase: {
-    name: 'Firebase',
-    class: 'bg-white text-gray-900 border-[1px] border-[#ffffff1a] ',
+    name: "Firebase",
+    class: "bg-white text-gray-900 border-[1px] border-[#ffffff1a] ",
     icon: FireBaseIcon,
   },
   RemixRun: {
-    name: 'Remix Run',
-    class: 'bg-black text-white border-[1px] border-[#ffffff1a] ',
+    name: "Remix Run",
+    class: "bg-black text-white border-[1px] border-[#ffffff1a] ",
     icon: RemixRun,
   },
   Strapi: {
-    name: 'Strapi',
-    class: 'bg-white text-gray-900 border-[1px] border-[#ffffff1a] ',
+    name: "Strapi",
+    class: "bg-white text-gray-900 border-[1px] border-[#ffffff1a] ",
     icon: Strapi,
   },
-}
+  TypeScript: {
+    name: "TypeScript",
+    class: "bg-blue-600 text-white border-[1px] border-[#ffffff1a]",
+    icon: TypeScript,
+  },
+  Zustand: {
+    name: "Zustand",
+    class: "bg-gray-700 text-white border-[1px] border-[#ffffff1a]",
+    icon: null,
+  },
+  Bun: {
+    name: "Bun",
+    class: "bg-yellow-300 text-black border-[1px] border-[#ffffff1a]",
+    icon: Bun,
+  },
+  Recharts: {
+    name: "Recharts",
+    class: "bg-red-500 text-white border-[1px] border-[#ffffff1a]",
+    icon: null,
+  },
+};
 
 const PROJECTS = [
   {
-    title: 'Guitar Glide',
+    title: "BillExpress",
     description:
-      'A website that consumes data from an API created with Strapi using a postgreSQL database hosted on Render.com, listing the guitars, posts from a blog and also has a shopping cart that uses localStorage to store the items.',
-    link: 'https://guitar-glide-remix.vercel.app/',
-    github: 'https://github.com/CodeBreaker518/guitar-glide-remix',
-    image: '/projects/guitar-glide-remix.webp',
-    tags: [TAGS.HTML5, TAGS.CSS, TAGS.RemixRun, TAGS.React, TAGS.JavaScript, TAGS.Strapi],
+      "BillExpress is a modern, open-source web application designed for personal finance management. It helps you track income, expenses, and bank accounts intuitively in one place.",
+    link: "https://billexpress.vercel.app/",
+    github: "https://github.com/CodeBreaker518/billexpress",
+    image: "/projects/BillExpress.png",
+    tags: [
+      TAGS.NextJS,
+      TAGS.React,
+      TAGS.TailWindCSS,
+      TAGS.FireBase,
+      TAGS.TypeScript,
+      TAGS.Zustand,
+      TAGS.Bun,
+      TAGS.Recharts,
+    ],
   },
   {
-    title: 'Chiteadas',
+    title: "Chiteadas",
     description:
-      'A website that fetches movie data from [TMDB API] and lists the movies, it also allows one to see the trailers of the movies (in case it has them) and search them with a search bar.',
-    link: 'https://chiteadas.vercel.app/',
-    github: 'https://github.com/CodeBreaker518/chiteadas',
-    image: '/projects/chiteadas.webp',
+      "A website that fetches movie data from [TMDB API] and lists the movies, it also allows one to see the trailers of the movies (in case it has them) and search them with a search bar.",
+    link: "https://chiteadas.vercel.app/",
+    github: "https://github.com/CodeBreaker518/chiteadas",
+    image: "/projects/chiteadas.webp",
     tags: [TAGS.HTML5, TAGS.CSS, TAGS.TailWindCSS, TAGS.NextJS, TAGS.React, TAGS.JavaScript],
   },
   {
-    title: 'Expenses Control',
+    title: "Expenses Control",
     description:
-      'A website to control your expenses, built using React & TailwindCSS using visual helpers to view, add, edit, delete and filter your expenses, also being able to restart the app. Used to perform CRUD operations on expenses using localStorage.',
-    link: 'https://expenses-control-codebreaker518.netlify.app/',
-    github: 'https://github.com/CodeBreaker518/expense-control',
-    image: '/projects/expenses-control.webp',
+      "A website to control your expenses, built using React & TailwindCSS using visual helpers to view, add, edit, delete and filter your expenses, also being able to restart the app. Used to perform CRUD operations on expenses using localStorage.",
+    link: "https://expenses-control-codebreaker518.netlify.app/",
+    github: "https://github.com/CodeBreaker518/expense-control",
+    image: "/projects/expenses-control.webp",
     tags: [TAGS.HTML5, TAGS.CSS, TAGS.TailWindCSS, TAGS.React, TAGS.JavaScript],
   },
   {
-    title: 'Veterinary Control',
+    title: "Veterinary Control",
     description:
-      'A website for a veterinary clinic built using React & TailwindCSS. Used to perform CRUD operations on pets using localStorage.',
-    link: 'https://veterinary-control.netlify.app/',
-    github: 'https://github.com/CodeBreaker518/VeterinaryControl',
-    image: '/projects/veterinary-control.webp',
+      "A website for a veterinary clinic built using React & TailwindCSS. Used to perform CRUD operations on pets using localStorage.",
+    link: "https://veterinary-control.netlify.app/",
+    github: "https://github.com/CodeBreaker518/VeterinaryControl",
+    image: "/projects/veterinary-control.webp",
     tags: [TAGS.HTML5, TAGS.CSS, TAGS.TailWindCSS, TAGS.React, TAGS.JavaScript],
   },
-  {
-    title: 'Realtime Chat App',
-    description: 'A realtime chat app built using Vanilla JavaScript, and Firebase with Google Authentication.',
-    link: 'https://chat-firebase-codebreaker518.web.app/',
-    github: 'https://github.com/CodeBreaker518/chat-firebase',
-    image: '/projects/chat-firebase.webp',
-    tags: [TAGS.HTML5, TAGS.CSS, TAGS.JavaScript, TAGS.Bootstrap, TAGS.FireBase],
-  },
-]
+];
 ---
 
 {
   PROJECTS.map(({ title, description, tags, image, link, github }) => (
-    <article class='project mb-20'>
-      <h3 class='text-2xl font-semibold text-yellow-200 mb-2'>{title}</h3>
-      <p class='text-white text-lg mb-4 text-pretty'>{description}</p>
-      <ul class='flex gap-2 flex-row flex-wrap mb-2'>
+    <article class="project mb-20 hover:-translate-y-1 transition duration-200 ease-in-out">
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-white text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-2 flex-row flex-wrap mb-2">
         {tags.map((tag) => (
           <li>
             <span class={`flex items-center justify-center gap-x-1 rounded-full text-xs ${tag.class} py-1 px-2`}>
-              {tag.icon && <tag.icon class='size-4' />}
+              {tag.icon && <tag.icon class="size-4" />}
               {tag.name}
             </span>
           </li>
         ))}
       </ul>
-      <div class='relative text-white overflow-hidden shadow-2xl shadow-white/10 w-full group transition-transform duration-200 ease-in-out '>
+      <div class="relative text-white overflow-hidden shadow-2xl shadow-white/10 w-full group">
         <img
-          class='relative rounded  group-hover:scale-110 transition duration-200 ease-in-out'
+          class="relative rounded  group-hover:scale-110 transition duration-200 ease-in-out"
           src={image}
           alt={`Screenshot of the project ${title}`}
         />
-        <div class='absolute flex justify-center items-center opacity-0 hover:opacity-100 gap-x-10 hover:bg-black/50 transition duration-200 ease-in-out top-0 left-0 right-0 bottom-0'>
+        <div class="absolute flex justify-center items-center opacity-0 hover:opacity-100 gap-x-10 hover:bg-black/50 transition duration-200 ease-in-out top-0 left-0 right-0 bottom-0">
           {link ? (
             <p>
               <a
                 href={link}
-                class='rounded-full flex flex-col justify-center items-center border border-white/10 text-xs md:text-base py-2 px-2 bg-white/5 hover:bg-white/10 transition'
-                target='_blank'
-                rel='noreferrer noopener'>
-                <ExternalLink class='size-8' />
+                class="rounded-full flex flex-col justify-center items-center border border-white/10 text-xs md:text-base py-2 px-2 bg-white/5 hover:bg-white/10 transition"
+                target="_blank"
+                rel="noreferrer noopener">
+                <ExternalLink class="size-8" />
               </a>
               Demo
             </p>
           ) : (
-            <p class='flex flex-col justify-center items-center'>
+            <p class="flex flex-col justify-center items-center">
               <a
                 href={link}
-                class='rounded-full flex flex-col justify-center items-center border border-white/10 text-xs md:text-base py-2 px-2 bg-white/5 hover:bg-white/10 transition'
-                target='_blank'
-                rel='noreferrer noopener'>
-                <ExternalLink class='size-8' />
+                class="rounded-full flex flex-col justify-center items-center border border-white/10 text-xs md:text-base py-2 px-2 bg-white/5 hover:bg-white/10 transition"
+                target="_blank"
+                rel="noreferrer noopener">
+                <ExternalLink class="size-8" />
               </a>
               Demo Unavailable
             </p>
@@ -164,10 +187,10 @@ const PROJECTS = [
           <p>
             <a
               href={github}
-              class='rounded-full flex flex-col justify-center items-center border border-white/10 text-xs md:text-base py-2 px-2 bg-white/5 hover:bg-white/10 transition'
-              target='_blank'
-              rel='noreferrer noopener'>
-              <GitHub class='size-8' />
+              class="rounded-full flex flex-col justify-center items-center border border-white/10 text-xs md:text-base py-2 px-2 bg-white/5 hover:bg-white/10 transition"
+              target="_blank"
+              rel="noreferrer noopener">
+              <GitHub class="size-8" />
             </a>
             Github
           </p>
