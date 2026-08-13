@@ -1,13 +1,17 @@
-<footer class='rounded-lg shadow m-4 bg-black/5 backdrop-blur-lg w-full xl:w-[1120px] mx-auto mb-10'>
-  <div class='w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between'>
-    <span class='text-sm sm:text-center text-yellow-200/90'
-      >© 2024 <a href='https://github.com/CodeBreaker518' target='_blank' rel='noreferrer noopener' class='hover:underline'
-        >CodeBreaker518</a
-      >. Almost all rights reserved
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+<footer class='w-full pt-10 mt-16 border-t border-white/5'>
+  <div class='flex flex-col md:flex-row md:items-center md:justify-between gap-y-4 text-xs font-semibold uppercase tracking-wider text-neutral-500'>
+    <span>
+      © 2026 <a href={t('github.url')} target='_blank' rel='noreferrer noopener' class='hover:underline text-yellow-200/90'>CodeBreaker518</a>. {t('footer.rights')}
     </span>
-    <ul class='flex flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 text-white'>
-      <li><a href='#' class='hover:underline me-4 md:me-6'>About Me</a></li>
-      <li><a href='#contact' class='hover:underline'>Contact</a></li>
+    <ul class='flex flex-wrap items-center gap-x-6'>
+      <li><a href='#top' class='hover:text-yellow-200 transition-colors duration-200'>{t('nav.about')}</a></li>
+      <li><a href='#contact' class='hover:text-yellow-200 transition-colors duration-200'>{t('nav.contact')}</a></li>
     </ul>
   </div>
 </footer>

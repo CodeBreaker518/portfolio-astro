@@ -1,22 +1,22 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 // Components
-import SocialPill from "../components/SocialPill.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-import Experience from "../components/Experience.astro";
-import Projects from "../components/Projects.astro";
-import ContactForm from "../components/ContactForm.astro";
+import SocialPill from "../../components/SocialPill.astro";
+import SectionContainer from "../../components/SectionContainer.astro";
+import Experience from "../../components/Experience.astro";
+import Projects from "../../components/Projects.astro";
+import ContactForm from "../../components/ContactForm.astro";
 // Icons
-import GitHubIcon from "../assets/icons/GitHub.astro";
-import LinkedInIcon from "../assets/icons/LinkedIn.astro";
-import MailIcon from "../assets/icons/Mail.astro";
-import BriefcaseIcon from "../assets/icons/Briefcase.astro";
-import CodeIcon from "../assets/icons/Code.astro";
-import MailContact from "../assets/icons/MailContact.astro";
-import FileDownload from "../assets/icons/FileDownload.astro";
+import GitHubIcon from "../../assets/icons/GitHub.astro";
+import LinkedInIcon from "../../assets/icons/LinkedIn.astro";
+import MailIcon from "../../assets/icons/Mail.astro";
+import BriefcaseIcon from "../../assets/icons/Briefcase.astro";
+import CodeIcon from "../../assets/icons/Code.astro";
+import MailContact from "../../assets/icons/MailContact.astro";
+import FileDownload from "../../assets/icons/FileDownload.astro";
 
 // i18n
-import { getLangFromUrl, useTranslations } from "../i18n/ui";
+import { getLangFromUrl, useTranslations } from "../../i18n/ui";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);

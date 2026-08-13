@@ -2,55 +2,83 @@
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import '@fontsource-variable/onest'
+
 interface Props {
   title: string
   description: string
 }
 
-const { description, title } = Astro.props
+const { title, description } = Astro.props
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='es'>
   <head>
     <meta charset='UTF-8' />
     <meta name='description' content={description} />
     <meta name='viewport' content='width=device-width' />
-    <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
   </head>
-
-  <body>
+  <body class="relative text-white min-h-screen">
     <!-- Background -->
-    <div class='fixed left-0 top-0 -z-10 h-full w-full'>
-      <div class='relative h-full w-full bg-black'>
-        <div
-          class='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]'>
-        </div><div
-          class='absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]'>
+    <div class='fixed left-0 top-0 -z-10 h-full w-full overflow-hidden bg-[#050508]'>
+      <!-- Spotlight Ambient Glow (Spotlight coming from top-center, GPU accelerated, 0 lag) -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] rounded-full bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.08)_0%,transparent_65%)] pointer-events-none"></div>
+      
+      <!-- Subtle side ambient glows (only 2% opacity to preserve absolute readability and high-end feel) -->
+      <div class='absolute top-[30%] left-[-10%] w-[50vw] h-[50vw] max-w-[500px] rounded-full bg-indigo-500/[0.02] blur-[100px] pointer-events-none'></div>
+      <div class='absolute bottom-[10%] right-[-10%] w-[50vw] h-[50vw] max-w-[500px] rounded-full bg-teal-500/[0.02] blur-[100px] pointer-events-none'></div>
+      
+      <!-- Tech Grid Pattern -->
+      <div class='absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none'></div>
+    </div>
+    
+    <!-- Unified Centered Application Grid Layout -->
+    <div class="max-w-6xl mx-auto px-6 w-full min-h-screen md:grid md:grid-cols-[120px_1fr] md:gap-x-20">
+      
+      <!-- Sticky Sidebar Menu Column (Desktop only) -->
+      <div class="relative md:sticky md:top-0 md:h-screen md:flex md:items-center md:justify-center md:col-start-1 md:pr-6">
+        
+        <!-- Left vertical ambient wave overlay (bounded exactly to the right of the column, no border line) -->
+        <div class="hidden md:block absolute inset-y-0 right-0 left-[-100vw] -z-10 select-none pointer-events-none bg-gradient-to-b from-[#050508] via-indigo-950/5 to-[#050508]">
+          <svg class="h-full w-full opacity-40 text-indigo-500/10" viewBox="0 0 100 1000" preserveAspectRatio="none" fill="currentColor">
+            <path d="M0,0 C40,150 70,350 40,500 C10,650 60,850 0,1000 L0,1000 L0,0 Z" />
+          </svg>
+        </div>
+        
+        <Header />
+      </div>
+      
+      <!-- Main Content Column -->
+      <div class="w-full md:col-start-2">
+        <!-- Framed content wrapper (tightly aligns border lines to the content boundaries) -->
+        <div class="w-full md:max-w-[860px] md:border-l md:border-r md:border-white/5 md:px-12 pt-12 pb-24">
+          <slot />
+          <!-- Footer -->
+          <Footer />
         </div>
       </div>
     </div>
-    <!-- Header -->
-    <Header />
-    <!-- Slot is where my pages are going to be rendered -->
-    <slot />
-    <!-- Footer -->
-    <Footer />
   </body>
 </html>
-<style is:global>
-  html {
-    scroll-behavior: smooth;
-    font-family: system-ui, sans-serif;
-  }
 
+<style is:global>
+  :root {
+    color-scheme: dark;
+  }
+  
+  html {
+    font-family: 'Onest Variable', system-ui, sans-serif;
+    background: #050508;
+    scroll-behavior: smooth;
+  }
+  
   body {
-    font-family: 'Onest Variable', sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-h-screen: 100vh;
   }
 
   @media (prefers-reduced-motion: reduce) {

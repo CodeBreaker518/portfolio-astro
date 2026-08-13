@@ -1,99 +1,70 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/ui'
 
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
-<form class='mt-8' name='contact-form' method='POST' data-netlify='true' data-netlify-recaptcha='true'>
-  <div class='grid grid-cols-1 gap-6'>
-    <div>
-      <label for='name' class='block text-sm font-medium text-yellow-200'>Name</label>
-      <div class='mt-1'>
+<div class="relative bg-white/[0.02] border border-white/[0.05] rounded-2xl p-6 md:p-8 backdrop-blur-md shadow-xl shadow-black/20">
+  <form class='mt-2' name='contact-form' method='POST' data-netlify='true' data-netlify-recaptcha='true'>
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-6 mb-6'>
+      <div>
+        <label for='name' class='block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2'>{t('contact.name')}</label>
         <input
           type='text'
           id='name'
           name='name'
-          class='py-2 px-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
-          placeholder='Enter your name'
+          class='py-3 px-4 block w-full text-sm rounded-xl bg-white/[0.02] border border-white/10 text-white placeholder-neutral-500 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.04] transition duration-200'
+          placeholder={t('contact.name_placeholder')}
           required
         />
       </div>
-    </div>
-    <div>
-      <label for='email' class='block text-sm font-medium text-yellow-200'>Email</label>
-      <div class='mt-1'>
+      <div>
+        <label for='email' class='block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2'>{t('contact.email')}</label>
         <input
           type='email'
           id='email'
           name='email'
-          class='py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
-          placeholder='Enter your email'
+          class='py-3 px-4 block w-full text-sm rounded-xl bg-white/[0.02] border border-white/10 text-white placeholder-neutral-500 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.04] transition duration-200'
+          placeholder={t('contact.email_placeholder')}
           required
         />
       </div>
     </div>
-    <div>
-      <label for='subject' class='block text-sm font-medium text-yellow-200'>Subject</label>
-      <div class='mt-1'>
-        <input
-          type='text'
-          id='subject'
-          name='subject'
-          class='py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
-          placeholder='Subject'
-          required
-        />
-      </div>
+    
+    <div class="mb-6">
+      <label for='subject' class='block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2'>{t('contact.subject')}</label>
+      <input
+        type='text'
+        id='subject'
+        name='subject'
+        class='py-3 px-4 block w-full text-sm rounded-xl bg-white/[0.02] border border-white/10 text-white placeholder-neutral-500 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.04] transition duration-200'
+        placeholder={t('contact.subject_placeholder')}
+        required
+      />
     </div>
-    <div>
-      <label for='message' class='block text-sm font-medium text-yellow-200'>Message</label>
-      <div class='mt-1'>
-        <textarea
-          id='message'
-          name='message'
-          rows='4'
-          class='py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none'
-          placeholder='Enter your message'
-          required></textarea>
-      </div>
+    
+    <div class="mb-6">
+      <label for='message' class='block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2'>{t('contact.message')}</label>
+      <textarea
+        id='message'
+        name='message'
+        rows='4'
+        class='py-3 px-4 block w-full text-sm rounded-xl bg-white/[0.02] border border-white/10 text-white placeholder-neutral-500 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.04] transition duration-200 resize-none'
+        placeholder={t('contact.message_placeholder')}
+        required></textarea>
     </div>
+    
     <div data-netlify-recaptcha='true'></div>
-    <div id='error' class='font-bold'></div>
+    <div id='error' class='font-bold mb-4'></div>
+    
     <div>
       <button
         type='submit'
         id='submitFormBtn'
-        class='inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-900 bg-white'>
-        Send Message
+        class='inline-flex justify-center items-center gap-x-2 w-full md:w-auto py-3 px-6 bg-white text-black font-bold text-xs rounded-full hover:bg-yellow-200 hover:scale-105 active:scale-95 transition duration-200 cursor-pointer shadow-lg shadow-black/20'>
+        {t('contact.send')}
       </button>
     </div>
-  </div>
-</form>
-
-<script>
-  // const submitFormBtn = document.getElementById('submitFormBtn')
-  // submitFormBtn?.addEventListener('click', async (e) => {
-  //   e.preventDefault()
-
-  //   if (!name || !email || !message || !subject) {
-  //     errorElement!.textContent = 'Please fill in all fields.'
-  //     errorElement?.classList.add('text-red-800', 'bg-white', 'p-2', 'rounded-md')
-  //     setTimeout(() => {
-  //       errorElement!.textContent = ''
-  //       errorElement?.classList.remove('text-red-800', 'bg-white', 'p-2', 'rounded-md')
-  //     }, 5000)
-  //     return
-  //   }
-
-  //   //reset form in case of success
-  //   ;(document.getElementById('name') as HTMLInputElement).value = ''
-  //   ;(document.getElementById('email') as HTMLInputElement).value = ''
-  //   ;(document.getElementById('message') as HTMLTextAreaElement).value = ''
-  //   ;(document.getElementById('subject') as HTMLTextAreaElement).value = ''
-  //   // show success message
-  //   errorElement!.textContent = 'Message sent successfully.'
-  //   errorElement?.classList.add('text-green-800', 'bg-white', 'p-2', 'rounded-md')
-  //   setTimeout(() => {
-  //     errorElement!.textContent = ''
-  //     errorElement?.classList.remove('text-green-800', 'bg-white', 'p-2', 'rounded-md')
-  //   }, 5000)
-  // })
-</script>
+  </form>
+</div>

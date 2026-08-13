@@ -1,19 +1,66 @@
-<header class='fixed top-0 left-0 right-0 flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto z-50'>
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+<header class='fixed bottom-4 left-0 right-0 flex justify-center items-center z-50 w-full px-4 md:relative md:bottom-auto md:left-auto md:right-auto md:h-auto md:w-full md:py-0 md:px-0'>
   <nav
-    class='nav-ul text-white flex flex-row justify-center items-center gap-2 border border-black rounded-full px-2 py-1 bg-black/50 backdrop-blur-2xl relative'>
+    class='nav-ul text-white flex flex-row justify-center items-center gap-x-4 border border-white/10 rounded-full px-4 py-2 bg-black/60 backdrop-blur-2xl relative w-fit shadow-xl shadow-black/40 md:flex-col md:gap-y-4 md:rounded-2xl md:px-3 md:py-6 md:w-28 md:max-w-none'>
+    
     <div
       id='menu-backdrop'
-      class={`absolute bg-white/20 backdrop-blur-2x1 rounded-lg
+      class={`absolute bg-white/10 backdrop-blur-2x1 rounded-lg
       left-0 top-0
       w-0 h-0
       transition-all duration-300
       ease-in-out opacity-0 -z-10
     `}>
     </div>
-    <a class='text-sm px-2' href='#top'>About Me</a>
-    <a class='text-sm px-2' href='#experience'>Experience</a>
-    <a class='text-sm px-2' href='#projects'>Projects</a>
-    <a class='text-sm px-2' href='#contact'>Contact</a>
+    
+    <!-- About me -->
+    <a class='flex items-center justify-center text-sm px-2.5 py-1.5 md:py-2 md:px-0 md:w-full md:text-center hover:text-yellow-200 transition-colors duration-200 font-medium' href='#top' title={t('nav.about')}>
+      <svg class="block md:hidden size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+      <span class="hidden md:inline">{t('nav.about')}</span>
+    </a>
+    
+    <!-- Experience -->
+    <a class='flex items-center justify-center text-sm px-2.5 py-1.5 md:py-2 md:px-0 md:w-full md:text-center hover:text-yellow-200 transition-colors duration-200 font-medium' href='#experience' title={t('nav.experience')}>
+      <svg class="block md:hidden size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+      <span class="hidden md:inline">{t('nav.experience')}</span>
+    </a>
+    
+    <!-- Projects -->
+    <a class='flex items-center justify-center text-sm px-2.5 py-1.5 md:py-2 md:px-0 md:w-full md:text-center hover:text-yellow-200 transition-colors duration-200 font-medium' href='#projects' title={t('nav.projects')}>
+      <svg class="block md:hidden size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+      <span class="hidden md:inline">{t('nav.projects')}</span>
+    </a>
+    
+    <!-- Contact -->
+    <a class='flex items-center justify-center text-sm px-2.5 py-1.5 md:py-2 md:px-0 md:w-full md:text-center hover:text-yellow-200 transition-colors duration-200 font-medium' href='#contact' title={t('nav.contact')}>
+      <svg class="block md:hidden size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+      <span class="hidden md:inline">{t('nav.contact')}</span>
+    </a>
+    
+    <span class="text-white/20 px-0.5 md:hidden">|</span>
+    <hr class="hidden md:block w-8 border-t border-white/20 my-1" />
+    
+    <!-- Language Toggle -->
+    <a 
+      class='flex items-center justify-center text-xs md:text-sm px-2.5 py-1.5 md:py-2 md:px-0 md:w-full md:text-center text-yellow-200/90 hover:text-white transition duration-200 font-semibold lang-toggle' 
+      href={lang === 'en' ? '/es' : '/'}
+    >
+      <span class="block md:hidden bg-white/10 text-white border border-white/10 rounded px-1.5 py-0.5 text-[9px] leading-none uppercase">{lang === 'en' ? 'ES' : 'EN'}</span>
+      <span class="hidden md:inline">{lang === 'en' ? 'ES' : 'EN'}</span>
+    </a>
   </nav>
 </header>
 
@@ -40,20 +87,24 @@
     })
 
     item.addEventListener('click', (event) => {
-      event.preventDefault() // Evitar el comportamiento predeterminado de navegación
+      const href = item.getAttribute('href')
+      if (!href || !href.startsWith('#')) {
+        return
+      }
 
-      const targetId = item.getAttribute('href')?.substring(1) // Obtener el ID de destino with null check
+      event.preventDefault()
+
+      const targetId = href.substring(1)
       const targetElement = targetId ? document.getElementById(targetId) : null
 
       if (targetElement) {
         const targetRect = targetElement.getBoundingClientRect()
-        let scrollTop = targetRect.top + window.scrollY - /* ajuste adicional aquí */ 50
+        let scrollTop = targetRect.top + window.scrollY - 50
 
         if (targetId === 'top') {
           scrollTop = 0
         }
 
-        // Animar el desplazamiento suavemente
         window.scrollTo({
           top: scrollTop,
           behavior: 'smooth',
